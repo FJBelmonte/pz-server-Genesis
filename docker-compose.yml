@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
     pzserver:
@@ -6,9 +6,6 @@ services:
         container_name: pzserver
         build:
             context: pzserver
-        ports:
-            - "16261:16261"
-            - "16262:16262"
         env_file:
             - .env
         volumes:
@@ -17,4 +14,4 @@ services:
             - ./volumes/pzserver/Zomboid/db:/home/pzuser/Zomboid/db/
             - ./volumes/pzserver/Zomboid/Logs:/home/pzuser/Zomboid/Logs/
             - ./volumes/pzserver/Zomboid/backups:/home/pzuser/Zomboid/backups/
-            - ./volumes/pzserver/Zomboid/Mods:/opt/pzserver/steamapps/workshop/content
+        network_mode: "host"
