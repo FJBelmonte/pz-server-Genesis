@@ -9,9 +9,9 @@ services:
         env_file:
             - .env
         volumes:
-            - ./volumes/pzserver/Zomboid/Server:/home/pzuser/Zomboid/Server/
-            - ./volumes/pzserver/Zomboid/Saves:/home/pzuser/Zomboid/Saves/
-            - ./volumes/pzserver/Zomboid/db:/home/pzuser/Zomboid/db/
-            - ./volumes/pzserver/Zomboid/Logs:/home/pzuser/Zomboid/Logs/
-            - ./volumes/pzserver/Zomboid/backups:/home/pzuser/Zomboid/backups/
+            - ./volumes/pzserver/Zomboid/Server:/root/Zomboid/Server/
+            - ./volumes/pzserver/Zomboid/Saves:/root/Zomboid/Saves/
+            - ./volumes/pzserver/Zomboid/db:/root/Zomboid/db/
+            - ./volumes/pzserver/Zomboid/Logs:/root/Zomboid/Logs/
+            - ./volumes/pzserver/Zomboid/backups:/root/Zomboid/backups/
         network_mode: "host"

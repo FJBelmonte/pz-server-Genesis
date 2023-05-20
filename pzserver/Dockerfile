@@ -17,13 +17,13 @@ RUN bash "${STEAMCMDDIR}/steamcmd.sh" \
 RUN mkdir -p "${HOMEDIR}/Zomboid"
 RUN ln -s "${HOMEDIR}/Zomboid" "${STEAMAPPDIR}/Zomboid"
 RUN chown -R ${USER}:${USER} "${HOMEDIR}/Zomboid"
-
+ 
 WORKDIR "${STEAMAPPDIR}"
 
 EXPOSE 16261-16262/udp
 EXPOSE 27015/tcp
 EXPOSE 8766/tcp
 
-ENV CPU_MHZ=3000
+RUN  sed -i "s/-Xmx.*/-Xmx${MAX_RAM}\",/g" /opt/pzserver/ProjectZomboid64.json
 
 CMD /bin/bash ${STEAMAPPDIR}/start-server.sh -adminpassword ${ADMIN_PASSWORD} -servername ${SERVER_NAME}
